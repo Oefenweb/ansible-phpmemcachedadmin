@@ -1,0 +1,5 @@
+# tasks file for phpmemcachedadmin
+---
+- include: download.yml
+- include: install.yml
+- include: remove.yml

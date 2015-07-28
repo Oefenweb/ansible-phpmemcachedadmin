@@ -1,0 +1,53 @@
+# tasks file for phpmemcachedadmin
+---
+- name: create (install) directory
+  file:
+    path: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  with_items: phpmemcachedadmin_install_dirs
+  when: item.state is undefined or item.state == 'present'
+  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-directory]
+
+- name: install
+  unarchive:
+    src: "{{ phpmemcachedadmin_download_path }}/{{ phpmemcachedadmin_download_url | basename }}"
+    dest: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
+    creates: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}/index.php"
+    copy: false
+  with_items: phpmemcachedadmin_install_dirs
+  when: item.state is undefined or item.state == 'present'
+  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-unarchive]
+
+- name: set file permissions
+  shell: "find . -type f ! -perm 0644 -print0 | xargs --no-run-if-empty -0 chmod -c 0644"
+  args:
+    chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
+  register: file_permissions
+  changed_when: "file_permissions.stdout_lines | length > 0"
+  with_items: phpmemcachedadmin_install_dirs
+  when: item.state is undefined or item.state == 'present'
+  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-file-permissions]
+
+- name: set dir permissions
+  shell: "find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755"
+  args:
+    chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
+  register: file_permissions
+  changed_when: "file_permissions.stdout_lines | length > 0"
+  with_items: phpmemcachedadmin_install_dirs
+  when: item.state is undefined or item.state == 'present'
+  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-dir-permissions]
+
+- name: set file owner and group
+  file:
+    path: "{{ item.0.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}/{{ item.1 }}"
+    owner: "{{ item.0.owner }}"
+    group: "{{ item.0.group | default(item.0.owner) }}"
+  with_nested:
+    - phpmemcachedadmin_install_dirs
+    - phpmemcachedadmin_writable_paths
+  when: item.0.state is undefined or item.0.state == 'present'
+  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-owner-froup]
