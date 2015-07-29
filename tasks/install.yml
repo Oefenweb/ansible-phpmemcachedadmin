@@ -35,8 +35,8 @@
   shell: "find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755"
   args:
     chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
-  register: file_permissions
-  changed_when: "file_permissions.stdout_lines | length > 0"
+  register: dir_permissions
+  changed_when: "dir_permissions.stdout_lines | length > 0"
   with_items: phpmemcachedadmin_install_dirs
   when: item.state is undefined or item.state == 'present'
   tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-install, phpmemcachedadmin-install-dir-permissions]
