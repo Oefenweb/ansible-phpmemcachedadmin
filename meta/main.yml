@@ -1,0 +1,25 @@
+# meta file for phpmemcachedadmin
+---
+galaxy_info:
+  author: Mischa ter Smitten
+  company: Oefenweb.nl B.V.
+  description: Set up phpMemcachedAdmin (Memcached server admin in php for monitoring and debugging)
+  license: MIT
+  min_ansible_version: 1.6
+  platforms:
+    - name: Ubuntu
+      versions:
+        - lucid
+        - precise
+        - trusty
+    - name: Debian
+      versions:
+        - squeeze
+        - wheezy
+        - jessie
+  categories:
+    - system
+    - web
+    - database
+    - database:nosql
+dependencies: []

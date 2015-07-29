@@ -1,0 +1,15 @@
+# test file for phpmemcachedadmin
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-phpmemcachedadmin
+  vars:
+    phpmemcachedadmin_install_dirs:
+      - dest: /tmp1
+        owner: travis
+      - dest: /tmp2
+        owner: travis
+        group: root
+      - dest: /tmp3
+        state: absent
