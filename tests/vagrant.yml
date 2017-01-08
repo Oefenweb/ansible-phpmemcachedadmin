@@ -5,3 +5,12 @@
   sudo: true
   roles:
     - ../../
+  vars:
+    phpmemcachedadmin_install_dirs:
+      - dest: /tmp1
+        owner: vagrant
+      - dest: /tmp2
+        owner: vagrant
+        group: root
+      - dest: /tmp3
+        state: absent

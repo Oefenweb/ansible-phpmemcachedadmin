@@ -4,6 +4,5 @@
   file:
     path: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
     state: absent
-  with_items: phpmemcachedadmin_install_dirs
+  with_items: "{{ phpmemcachedadmin_install_dirs }}"
   when: item.state is defined and item.state == 'absent'
-  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-remove]

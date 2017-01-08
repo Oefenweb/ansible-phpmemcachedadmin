@@ -1,5 +1,19 @@
 # tasks file for phpmemcachedadmin
 ---
 - include: download.yml
+  tags:
+    - configuration
+    - phpmemcachedadmin
+    - phpmemcachedadmin-download
+
 - include: install.yml
+  tags:
+    - configuration
+    - phpmemcachedadmin
+    - phpmemcachedadmin-install
+
 - include: remove.yml
+  tags:
+    - configuration
+    - phpmemcachedadmin
+    - phpmemcachedadmin-remove

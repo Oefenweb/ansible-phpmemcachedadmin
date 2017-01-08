@@ -7,7 +7,8 @@
     owner: root
     group: root
     mode: 0755
-  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-download, phpmemcachedadmin-download-directory]
+  tags:
+    - phpmemcachedadmin-download-directory
 
 - name: download
   get_url:
@@ -16,4 +17,5 @@
     owner: root
     group: root
     mode: 0644
-  tags: [configuration, phpmemcachedadmin, phpmemcachedadmin-download, phpmemcachedadmin-download-get-url]
+  tags:
+    - phpmemcachedadmin-download-get-url
