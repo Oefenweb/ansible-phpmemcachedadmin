@@ -1,6 +1,6 @@
 ## phpmemcachedadmin
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-phpmemcachedadmin.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-phpmemcachedadmin) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-phpmemcachedadmin-blue.svg)](https://galaxy.ansible.com/list#/roles/4574)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-phpmemcachedadmin.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-phpmemcachedadmin) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-phpmemcachedadmin-blue.svg)](https://galaxy.ansible.com/Oefenweb/phpmemcachedadmin)
 
 Set up [phpMemcachedAdmin](https://code.google.com/p/phpmemcacheadmin/) (Memcached server admin in php for monitoring and debugging).
 
