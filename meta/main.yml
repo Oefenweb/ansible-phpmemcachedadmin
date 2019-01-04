@@ -1,6 +1,7 @@
 # meta file for phpmemcachedadmin
 ---
 galaxy_info:
+  role_name: phpmemcachedadmin
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up phpMemcachedAdmin (Memcached server admin in php for monitoring and debugging)
@@ -12,13 +13,19 @@ galaxy_info:
         - precise
         - trusty
         - xenial
+        - bionic
     - name: Debian
       versions:
         - wheezy
         - jessie
+        - stretch
   galaxy_tags:
     - system
     - web
     - database
-    - database:nosql
+    - nosql
+    - php
+    - memcached
+    - monitoring
+    - debugging
 dependencies: []

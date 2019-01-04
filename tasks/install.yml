@@ -24,7 +24,8 @@
     - phpmemcachedadmin-install-unarchive
 
 - name: set file permissions
-  shell: find . -type f ! -perm 0644 -print0 | xargs --no-run-if-empty -0 chmod -c 0644
+  shell: >
+    find . -type f ! -perm 0644 -print0 | xargs --no-run-if-empty -0 chmod -c 0644
   args:
     chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
   register: _file_permissions
@@ -35,7 +36,8 @@
     - phpmemcachedadmin-install-file-permissions
 
 - name: set dir permissions
-  shell: find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755
+  shell: >
+    find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755
   args:
     chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
   register: _dir_permissions
