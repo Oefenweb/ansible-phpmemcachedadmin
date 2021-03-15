@@ -1,4 +1,4 @@
-# defaults file for phpmemcachedadmin
+# defaults file
 ---
 phpmemcachedadmin_version: 1.2.2-r262
 phpmemcachedadmin_install_dirs: []

@@ -1,4 +1,4 @@
-# tasks file for phpmemcachedadmin
+# tasks file
 ---
 - include: download.yml
   tags:

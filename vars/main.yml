@@ -1,4 +1,4 @@
-# vars file for phpmemcachedadmin
+# vars file
 ---
 phpmemcachedadmin_download_path: /var/lib/ansible/phpmemcachedadmin/downloads
 phpmemcachedadmin_download_url: "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/phpmemcacheadmin/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.tar.gz"

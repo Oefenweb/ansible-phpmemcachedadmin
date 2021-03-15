@@ -1,6 +1,7 @@
-# meta file for phpmemcachedadmin
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: phpmemcachedadmin
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
