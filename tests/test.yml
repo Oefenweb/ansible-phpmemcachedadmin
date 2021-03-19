@@ -4,17 +4,9 @@
   connection: local
   become: true
   pre_tasks:
-    - name: pre | create user (if needed)
-      user:
-        name: travis
+    - name: include vars
+      include_vars: "{{ playbook_dir }}/vars/main.yml"
+    - name: include tasks
+      include: "{{ playbook_dir }}/tasks/pre.yml"
   roles:
     - ../../
-  vars:
-    phpmemcachedadmin_install_dirs:
-      - dest: /tmp1
-        owner: travis
-      - dest: /tmp2
-        owner: travis
-        group: root
-      - dest: /tmp3
-        state: absent
