@@ -1,0 +1,10 @@
+# vars file
+---
+phpmemcachedadmin_install_dirs:
+  - dest: /tmp1
+    owner: dummy
+  - dest: /tmp2
+    owner: dummy
+    group: root
+  - dest: /tmp3
+    state: absent
