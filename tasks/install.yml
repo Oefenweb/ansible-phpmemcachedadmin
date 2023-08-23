@@ -23,7 +23,7 @@
   tags:
     - phpmemcachedadmin-install-unarchive
 
-- name: set file permissions
+- name: set file permissions  # noqa risky-shell-pipe
   ansible.builtin.shell: >
     find . -type f ! -perm 0644 -print0 | xargs --no-run-if-empty -0 chmod -c 0644
   args:
@@ -35,7 +35,7 @@
   tags:
     - phpmemcachedadmin-install-file-permissions
 
-- name: set dir permissions
+- name: set dir permissions  # noqa risky-shell-pipe
   ansible.builtin.shell: >
     find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755
   args:
