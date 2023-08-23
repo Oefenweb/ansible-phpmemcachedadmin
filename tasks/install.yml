@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: create (install) directory
-  file:
+  ansible.builtin.file:
     path: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
     state: directory
     owner: root
@@ -13,7 +13,7 @@
     - phpmemcachedadmin-install-directory
 
 - name: install
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ phpmemcachedadmin_download_path }}/{{ phpmemcachedadmin_download_url | basename }}"
     dest: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
     creates: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}/index.php"
@@ -23,8 +23,8 @@
   tags:
     - phpmemcachedadmin-install-unarchive
 
-- name: set file permissions
-  shell: >
+- name: set file permissions  # noqa risky-shell-pipe
+  ansible.builtin.shell: >
     find . -type f ! -perm 0644 -print0 | xargs --no-run-if-empty -0 chmod -c 0644
   args:
     chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
@@ -35,8 +35,8 @@
   tags:
     - phpmemcachedadmin-install-file-permissions
 
-- name: set dir permissions
-  shell: >
+- name: set dir permissions  # noqa risky-shell-pipe
+  ansible.builtin.shell: >
     find . -type d ! -perm 0755 -print0 | xargs --no-run-if-empty -0 chmod -c 0755
   args:
     chdir: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
@@ -48,7 +48,7 @@
     - phpmemcachedadmin-install-dir-permissions
 
 - name: set file owner and group
-  file:
+  ansible.builtin.file:
     path: "{{ item.0.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}/{{ item.1 }}"
     owner: "{{ item.0.owner }}"
     group: "{{ item.0.group | default(item.0.owner) }}"

@@ -5,6 +5,6 @@ phpmemcachedadmin_install_dirs:
     owner: dummy
   - dest: /tmp2
     owner: dummy
-    group: root
+    ansible.builtin.group: root
   - dest: /tmp3
     state: absent

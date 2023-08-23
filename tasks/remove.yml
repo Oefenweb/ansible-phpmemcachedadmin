@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: remove
-  file:
+  ansible.builtin.file:
     path: "{{ item.dest }}/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}"
     state: absent
   with_items: "{{ phpmemcachedadmin_install_dirs }}"
