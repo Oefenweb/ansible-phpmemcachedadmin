@@ -1,18 +1,21 @@
 # tasks file
 ---
-- include: download.yml
+- name: download
+  ansible.builtin.import_tasks: download.yml
   tags:
     - configuration
     - phpmemcachedadmin
     - phpmemcachedadmin-download
 
-- include: install.yml
+- name: install
+  ansible.builtin.import_tasks: install.yml
   tags:
     - configuration
     - phpmemcachedadmin
     - phpmemcachedadmin-install
 
-- include: remove.yml
+- name: remove
+  ansible.builtin.import_tasks: remove.yml
   tags:
     - configuration
     - phpmemcachedadmin
