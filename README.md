@@ -29,7 +29,7 @@ None
 ---
 - hosts: all
   roles:
-    - phpmemcachedadmin
+    - oefenweb.phpmemcachedadmin
   vars:
     phpmemcachedadmin_install_dirs:
       - dest: /var/www
