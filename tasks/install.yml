@@ -6,7 +6,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
   with_items: "{{ phpmemcachedadmin_install_dirs }}"
   when: item.state is undefined or item.state == 'present'
   tags:
